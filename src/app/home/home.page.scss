@@ -25,3 +25,30 @@
 #container a {
   text-decoration: none;
 }
+
+ion-header ion-toolbar {
+  --background: rgb(28, 130, 194);
+--color : black;
+
+}
+
+ion-content ion-item {
+  --background: rgb(179, 202, 216);
+  
+  }
+
+  ion-content {
+    --background: rgb(185, 187, 241);
+    
+    }
+    
+    ion-list ion-item  {
+      --background: rgb(185, 187, 241);
+      
+      }
+      ion-list  {
+        --ion-background-color: rgb(185, 187, 241);
+        
+        }
+      
+  

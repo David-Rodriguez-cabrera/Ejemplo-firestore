@@ -1,35 +1,72 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Ejemplo Firestore
+      Procesadores
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-item>
-    <ion-label>Título</ion-label>
-    <ion-input [(ngModel)]="tareaEditando.titulo"></ion-input>
+    <ion-label>Procesador</ion-label>
+    <ion-input [(ngModel)]="tareaEditando.procesador"></ion-input>
+    
   </ion-item>
 
   <ion-item>
-    <ion-label>Descripción</ion-label>
-    <ion-input [(ngModel)]="tareaEditando.descripcion"></ion-input>
+    <ion-label>Fecha de Salida</ion-label>
+    <ion-input [(ngModel)]="tareaEditando.fecha"></ion-input>
+    <!-- <IonDatetime displayFormat="YYYY-MM-DD" ></IonDatetime> -->
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Generacion</ion-label>
+    <ion-input [(ngModel)]="tareaEditando.generacion"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Nucleos</ion-label>
+    <ion-input [(ngModel)]="tareaEditando.nucleos"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Hercios</ion-label>
+    <ion-input [(ngModel)]="tareaEditando.hercios"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Precio en €</ion-label>
+    <ion-input [(ngModel)]="tareaEditando.precio"></ion-input>
   </ion-item>
 
   <ion-button (click)="clickBotonInsertar()">Añadir tarea</ion-button>
   <ion-button (click)="clicBotonBorrar()">Eliminar tarea</ion-button>
   <ion-button (click)="clicBotonModificar()">Modificar tarea</ion-button>
-  <h1>LISTA DE TAREAS</h1>
+  <h1>LISTA DE PROCESADORES</h1>
   <ion-list>
     <ion-item *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)">
       <ion-grid>
         <ion-row>
-          <h2>{{documentTarea.data.titulo}}</h2>
+          <h3>Procesador: {{documentTarea.data.procesador}}</h3>
         </ion-row>
         <ion-row>
-          <p>{{documentTarea.data.descripcion}}</p>
+          <p>Generación: {{documentTarea.data.generacion}}</p>
+          
         </ion-row>
+        <ion-row>
+          <p>Fecha de Salida: {{documentTarea.data.fecha}}</p>
+        </ion-row>
+        <ion-row>
+          <p>Núcleos: {{documentTarea.data.nucleos}}</p>
+          
+        </ion-row>
+        <ion-row>
+        <p>Hercios: {{documentTarea.data.hercios}}</p>
+      </ion-row>
+      <ion-row>
+        <p>Precio en €: {{documentTarea.data.precio}}€</p>
+      </ion-row>
+      
       </ion-grid>
     </ion-item>
   </ion-list>

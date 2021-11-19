@@ -53,8 +53,13 @@ export class HomePage {
     console.log("Tarea seleccionada: ");
     console.log(tareaSelec);
     this.idTareaSelec = tareaSelec.id;
-    this.tareaEditando.titulo = tareaSelec.data.titulo;
-    this.tareaEditando.descripcion = tareaSelec.data.descripcion;
+    
+    this.tareaEditando.procesador = tareaSelec.data.procesador;
+    this.tareaEditando.fecha = tareaSelec.data.fecha;
+    this.tareaEditando.generacion = tareaSelec.data.generacion;
+    this.tareaEditando.nucleos = tareaSelec.data.nucleos;
+    this.tareaEditando.hercios = tareaSelec.data.hercios;
+    this.tareaEditando.precio = tareaSelec.data.precio;
   }
 
   clicBotonBorrar() {

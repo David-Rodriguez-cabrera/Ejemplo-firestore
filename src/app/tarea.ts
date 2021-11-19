@@ -1,4 +1,8 @@
 export interface Tarea {
-    titulo: string;
-    descripcion: string;
+    procesador: string;
+    fecha: Date;
+    generacion: number;
+    nucleos: number;
+    hercios: number;
+    precio: number;
 }
