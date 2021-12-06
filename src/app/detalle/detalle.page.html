@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item>
+    <ion-label>id:</ion-label>
+    <ion-input readonly> {{ id }} </ion-input>
+    
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Procesador</ion-label>
+    <ion-input></ion-input>
+    
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Fecha de Salida</ion-label>
+    <ion-input></ion-input>
+    <!-- <IonDatetime displayFormat="YYYY-MM-DD" ></IonDatetime> -->
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Generacion</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Nucleos</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Hercios</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Precio en €</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-button (click)="clickBotonInsertar()">Añadir tarea</ion-button>
+  <ion-button (click)="clicBotonBorrar()">Eliminar tarea</ion-button>
+  <ion-button (click)="clicBotonModificar()">Modificar tarea</ion-button>
+  <h1>LISTA DE PROCESADORES</h1>
+  <ion-list>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <h2>Id: {{ id }}</h2>
+        </ion-row>
+        <ion-row>
+          <h3>Procesador: </h3>
+        </ion-row>
+        <ion-row>
+          <p>Generación: </p>
+          
+        </ion-row>
+        <ion-row>
+          <p>Fecha de Salida: </p>
+        </ion-row>
+        <ion-row>
+          <p>Núcleos: </p>
+          
+        </ion-row>
+        <ion-row>
+        <p>Hercios: </p>
+      </ion-row>
+      <ion-row>
+        <p>Precio en €: €</p>
+      </ion-row>
+      
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

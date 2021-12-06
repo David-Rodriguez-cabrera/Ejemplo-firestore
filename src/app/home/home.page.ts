@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirestoreService } from '../firestore.service';
 import { Tarea } from '../tarea';
 
@@ -20,7 +21,7 @@ export class HomePage {
 
   
 
-  constructor(private firestoreService: FirestoreService) {
+  constructor(private firestoreService: FirestoreService, private router: Router) {
     //Crear una tarea vacía al empezar
     this.tareaEditando = {} as Tarea;
     this.obtenerListaTareas();
@@ -60,6 +61,7 @@ export class HomePage {
     this.tareaEditando.nucleos = tareaSelec.data.nucleos;
     this.tareaEditando.hercios = tareaSelec.data.hercios;
     this.tareaEditando.precio = tareaSelec.data.precio;
+    this.router.navigate(['/detalle', this.idTareaSelec]);
   }
 
   clicBotonBorrar() {
