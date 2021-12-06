@@ -7,47 +7,47 @@
 <ion-content [fullscreen]="true">
 
   <ion-item>
-    <ion-label>id:</ion-label>
+    <ion-label>Id: </ion-label>
     <ion-input readonly> {{ id }} </ion-input>
     
   </ion-item>
 
   <ion-item>
-    <ion-label>Procesador</ion-label>
-    <ion-input></ion-input>
+    <ion-label>Procesador: </ion-label>
+    <ion-input> {{ document.data.procesador }} </ion-input>
     
   </ion-item>
 
   <ion-item>
-    <ion-label>Fecha de Salida</ion-label>
-    <ion-input></ion-input>
+    <ion-label>Fecha de Salida: </ion-label>
+    <ion-input> {{ document.data.fecha }} </ion-input>
     <!-- <IonDatetime displayFormat="YYYY-MM-DD" ></IonDatetime> -->
   </ion-item>
 
   <ion-item>
-    <ion-label>Generacion</ion-label>
-    <ion-input></ion-input>
+    <ion-label>Generacion: </ion-label>
+    <ion-input> {{ document.data.generacion }} </ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Nucleos</ion-label>
-    <ion-input></ion-input>
+    <ion-label>Nucleos: </ion-label>
+    <ion-input> {{ document.data.nucleos }} </ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Hercios</ion-label>
-    <ion-input></ion-input>
+    <ion-label>Hercios: </ion-label>
+    <ion-input> {{ document.data.hercios }} </ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Precio en €</ion-label>
-    <ion-input></ion-input>
+    <ion-label>Precio en €: </ion-label>
+    <ion-input> {{ document.data.precio }} </ion-input>
   </ion-item>
 
   <ion-button (click)="clickBotonInsertar()">Añadir tarea</ion-button>
   <ion-button (click)="clicBotonBorrar()">Eliminar tarea</ion-button>
   <ion-button (click)="clicBotonModificar()">Modificar tarea</ion-button>
-  <h1>LISTA DE PROCESADORES</h1>
+  <!-- <h1>LISTA DE PROCESADORES</h1>
   <ion-list>
     <ion-item>
       <ion-grid>
@@ -77,6 +77,6 @@
       
       </ion-grid>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
   
 </ion-content>

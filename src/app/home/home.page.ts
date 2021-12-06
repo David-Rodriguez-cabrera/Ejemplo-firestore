@@ -62,6 +62,7 @@ export class HomePage {
     this.tareaEditando.hercios = tareaSelec.data.hercios;
     this.tareaEditando.precio = tareaSelec.data.precio;
     this.router.navigate(['/detalle', this.idTareaSelec]);
+    
   }
 
   clicBotonBorrar() {
