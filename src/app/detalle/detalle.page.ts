@@ -33,6 +33,18 @@ document: any = {
     });
   }
 
+  clickBotonInsertar() {
+    this.firestoreService.insertar("tareas", this.document.data)
+    .then(() =>{
+      console.log("Tarea creada correctamente")
+      // Limpiar el contenido de la tarea que se estaba editando
+      this.document.data = {} as Tarea;
+    }, (error) => {
+      console.error(error);
+    });
+
+  }
+
   clicBotonBorrar() {
     this.firestoreService.borrar("tareas", this.id).then(() => {
       // Actualizar la lista completa
@@ -50,5 +62,6 @@ document: any = {
       this.document.data = {} as Tarea;
     })
   }
+  
 
 }

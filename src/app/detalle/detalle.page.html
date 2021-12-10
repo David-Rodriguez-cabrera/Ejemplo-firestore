@@ -7,12 +7,6 @@
 <ion-content [fullscreen]="true">
 
   <ion-item>
-    <ion-label>Id: </ion-label>
-    <ion-input readonly> {{id}} </ion-input>
-    
-  </ion-item>
-
-  <ion-item>
     <ion-label>Procesador: </ion-label>
     <ion-input [(ngModel)]="document.data.procesador" ></ion-input>
     
@@ -44,9 +38,13 @@
     <ion-input [(ngModel)]="document.data.precio"> </ion-input>
   </ion-item>
 
-  <!-- <ion-button (click)="clickBotonInsertar()">Añadir tarea</ion-button> -->
-  <ion-button (click)="clicBotonBorrar()">Eliminar tarea</ion-button>
-  <ion-button (click)="clicBotonModificar()">Modificar tarea</ion-button>
+  <ion-button *ngIf="id != 'nuevo'" (click)="clicBotonModificar()">Modificar tarea</ion-button>
+  <ion-button *ngIf="id != 'nuevo'" (click)="clicBotonBorrar()">Eliminar tarea</ion-button>
+
+  <ion-button *ngIf="id == 'nuevo'"(click)="clickBotonInsertar()">Guardar</ion-button>
+  <ion-button href="home">Volver atras</ion-button>
+
+  
   <!-- <h1>LISTA DE PROCESADORES</h1>
   <ion-list>
     <ion-item>
