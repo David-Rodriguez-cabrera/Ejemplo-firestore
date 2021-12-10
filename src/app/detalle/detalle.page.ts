@@ -33,4 +33,22 @@ document: any = {
     });
   }
 
+  clicBotonBorrar() {
+    this.firestoreService.borrar("tareas", this.id).then(() => {
+      // Actualizar la lista completa
+      this.ngOnInit();
+      // Limpiar datos de pantalla
+      this.document.data = {} as Tarea;
+    })
+  }
+
+  clicBotonModificar() {
+    this.firestoreService.actualizar("tareas", this.id, this.document.data).then(() => {
+      // Actualizar la lista completa
+      this.ngOnInit();
+      // Limpiar datos de pantalla
+      this.document.data = {} as Tarea;
+    })
+  }
+
 }
