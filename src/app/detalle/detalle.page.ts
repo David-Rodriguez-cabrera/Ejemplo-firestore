@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Tarea } from '../tarea';
 import { FirestoreService } from '../firestore.service';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.page.html',
@@ -15,7 +16,7 @@ document: any = {
   data: {} as Tarea
 };
 
-  constructor(private firestoreService: FirestoreService, private activateRoute: ActivatedRoute) { }
+  constructor(private firestoreService: FirestoreService, private activateRoute: ActivatedRoute, public alertController: AlertController) { }
 
   ngOnInit() {
     this.id = this.activateRoute.snapshot.paramMap.get('id');
@@ -45,7 +46,10 @@ document: any = {
 
   }
 
+ 
+
   clicBotonBorrar() {
+    
     this.firestoreService.borrar("tareas", this.id).then(() => {
       // Actualizar la lista completa
       this.ngOnInit();
@@ -53,6 +57,8 @@ document: any = {
       this.document.data = {} as Tarea;
     })
   }
+
+
 
   clicBotonModificar() {
     this.firestoreService.actualizar("tareas", this.id, this.document.data).then(() => {
@@ -63,5 +69,30 @@ document: any = {
     })
   }
   
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirm!',
+      message: 'Desea <strong>Eliminar</strong>!!!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          },
+        },
+        {
+          text: 'Okay',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.clicBotonBorrar();
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
 
 }

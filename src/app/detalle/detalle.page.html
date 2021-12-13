@@ -39,7 +39,7 @@
   </ion-item>
 
   <ion-button *ngIf="id != 'nuevo'" (click)="clicBotonModificar()">Modificar tarea</ion-button>
-  <ion-button *ngIf="id != 'nuevo'" (click)="clicBotonBorrar()">Eliminar tarea</ion-button>
+  <ion-button *ngIf="id != 'nuevo'" (click)="presentAlertConfirm()">Eliminar tarea</ion-button>
 
   <ion-button *ngIf="id == 'nuevo'"(click)="clickBotonInsertar()">Guardar</ion-button>
   <ion-button href="home">Volver atras</ion-button>
