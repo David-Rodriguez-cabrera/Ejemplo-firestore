@@ -25,6 +25,10 @@ document: any = {
       if(resultado.payload.data() != null) {
         this.document.id = resultado.payload.id
         this.document.data = resultado.payload.data();
+        //console.log(this.document.data.imagen);
+      //   if (this.document.data.imagen == undefined){
+      //   this.document.data.imagen = 'https://canalcocina.es/medias/_cache/zoom-cfb51745176980ddf03e20382b32760d-920-518.jpg'; 
+      // }
         // Como ejemplo, mostrar el título de la tarea en consola
         console.log(this.document.data.titulo);
       } else {

@@ -5,4 +5,5 @@ export interface Tarea {
     nucleos: number;
     hercios: number;
     precio: number;
+    imagen: string;
 }

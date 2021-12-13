@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item>
+  <!-- <ion-item>
     <ion-label>Procesador</ion-label>
     <ion-input [(ngModel)]="tareaEditando.procesador"></ion-input>
     
@@ -16,7 +16,7 @@
   <ion-item>
     <ion-label>Fecha de Salida</ion-label>
     <ion-input [(ngModel)]="tareaEditando.fecha"></ion-input>
-    <!-- <IonDatetime displayFormat="YYYY-MM-DD" ></IonDatetime> -->
+    <IonDatetime displayFormat="YYYY-MM-DD" ></IonDatetime>
   </ion-item>
 
   <ion-item>
@@ -38,6 +38,11 @@
     <ion-label>Precio en €</ion-label>
     <ion-input [(ngModel)]="tareaEditando.precio"></ion-input>
   </ion-item>
+  <ion-item>
+    <ion-label>Imagen:</ion-label>
+    <ion-input [(ngModel)]="tareaEditando.imagen"></ion-input>
+    
+  </ion-item>-->
 
   <!-- <ion-button (click)="clickBotonInsertar()">Añadir tarea</ion-button> -->
   <ion-fab-button href="detalle/nuevo">Añadir</ion-fab-button>
@@ -67,7 +72,9 @@
       <ion-row>
         <p>Precio en €: {{documentTarea.data.precio}}€</p>
       </ion-row>
-      
+      <ion-row>
+        <ion-img style="width: 80px; height: 80px;"  [src]="documentTarea.data.imagen == undefined ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png' : documentTarea.data.imagen"> Imagen:  </ion-img>
+      </ion-row>
       </ion-grid>
     </ion-item>
   </ion-list>
