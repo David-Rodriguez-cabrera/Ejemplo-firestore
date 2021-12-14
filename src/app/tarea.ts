@@ -3,6 +3,7 @@ export interface Tarea {
     fecha: Date;
     generacion: number;
     nucleos: number;
+    hilos: number;
     hercios: number;
     precio: number;
     imagen: string;

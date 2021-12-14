@@ -53,17 +53,27 @@
     <ion-item *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)">
       <ion-grid>
         <ion-row>
-          <h3>Procesador: {{documentTarea.data.procesador}}</h3>
+          <ion-col>
+          <h3>Procesador: {{documentTarea.data.procesador}}  </h3>
+        </ion-col>
+          <ion-col>
+
+          <ion-img style="width: 80px; height: 80px; float: center;" text-align="center"   [src]="documentTarea.data.imagen == undefined ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png' : documentTarea.data.imagen">  </ion-img>
+        </ion-col>
         </ion-row>
-        <ion-row>
+        <!-- <ion-row>
           <p>Generación: {{documentTarea.data.generacion}}</p>
           
         </ion-row>
         <ion-row>
           <p>Fecha de Salida: {{documentTarea.data.fecha}}</p>
-        </ion-row>
+        </ion-row> -->
         <ion-row>
           <p>Núcleos: {{documentTarea.data.nucleos}}</p>
+          
+        </ion-row>
+        <ion-row>
+          <p>Hilos: {{documentTarea.data.hilos}}</p>
           
         </ion-row>
         <ion-row>
@@ -72,9 +82,9 @@
       <ion-row>
         <p>Precio en €: {{documentTarea.data.precio}}€</p>
       </ion-row>
-      <ion-row>
+      <!-- <ion-row>
         <ion-img style="width: 80px; height: 80px;"  [src]="documentTarea.data.imagen == undefined ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png' : documentTarea.data.imagen"> Imagen:  </ion-img>
-      </ion-row>
+      </ion-row> -->
       </ion-grid>
     </ion-item>
   </ion-list>

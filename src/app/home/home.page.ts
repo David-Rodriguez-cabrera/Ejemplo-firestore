@@ -65,6 +65,7 @@ export class HomePage {
     this.tareaEditando.fecha = tareaSelec.data.fecha;
     this.tareaEditando.generacion = tareaSelec.data.generacion;
     this.tareaEditando.nucleos = tareaSelec.data.nucleos;
+    this.tareaEditando.hilos = tareaSelec.data.hilos;
     this.tareaEditando.hercios = tareaSelec.data.hercios;
     this.tareaEditando.precio = tareaSelec.data.precio;
     this.tareaEditando.imagen = tareaSelec.data.imagen;
