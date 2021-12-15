@@ -13,7 +13,7 @@
   <!-- <ion-button (click)="clicBotonBorrar()">Eliminar tarea</ion-button>
   <ion-button (click)="clicBotonModificar()">Modificar tarea</ion-button> -->
   <h1>LISTA DE PROCESADORES</h1>
-  <ion-list>
+  <!-- <ion-list> -->
     <!-- <ion-item *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)"> -->
       <!-- <ion-grid>
         <ion-row>
@@ -41,15 +41,21 @@
         <ion-img style="width: 80px; height: 80px;"  [src]="documentTarea.data.imagen == undefined ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png' : documentTarea.data.imagen"> Imagen:  </ion-img>
       </ion-row>
       </ion-grid> -->
-      <ion-card *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)">
-        <img style="width: 80px; height: 80px;"  [src]="documentTarea.data.imagen == undefined ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png' : documentTarea.data.imagen">
+      <ion-row>
+        <ion-col *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)" size-xl="2.5" size-lg="2.5" size-md="3" size-sm="5" size-xs="12">
+      <ion-card class="carta">
+        
+        <img style="height: 190px; width: 100%; float: center;" text-align="center"  [src]="documentTarea.data.imagen == undefined ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png' : documentTarea.data.imagen">
+      
         <ion-card-header>
-          <ion-card-subtitle>{{documentTarea.data.precio}}</ion-card-subtitle>
+          <ion-card-subtitle>{{documentTarea.data.precio}}€</ion-card-subtitle>
           <ion-card-title>{{documentTarea.data.procesador}}</ion-card-title>
         </ion-card-header>
         
       </ion-card>
+    </ion-col>
+    </ion-row>
     <!-- </ion-item> -->
-  </ion-list>
+  <!-- </ion-list> -->
   
 </ion-content>
