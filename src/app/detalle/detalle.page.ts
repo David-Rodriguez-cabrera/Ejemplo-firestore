@@ -76,7 +76,7 @@ document: any = {
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Confirm!',
+      header: 'Cuidado!',
       message: 'Desea <strong>Eliminar</strong>!!!',
       buttons: [
         {
