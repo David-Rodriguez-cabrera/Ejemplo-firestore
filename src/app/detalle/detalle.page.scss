@@ -38,6 +38,16 @@
     --background: rgb(238, 238, 245);
     
     }
+
+    ion-content ion-item ion-label {
+      --color: black;
+      
+      }
+
+    ion-content ion-item ion-input {
+      --color: black;
+      
+      }
   
     ion-content {
       --background: rgb(143, 146, 236);
