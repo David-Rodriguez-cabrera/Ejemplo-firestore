@@ -43,9 +43,11 @@
   </ion-item>
   <ion-item>
     <ion-label>Imagen: </ion-label>
-    <ion-input [(ngModel)]="document.data.imagen"> </ion-input>
+    <ion-input {{documentTarea.data.imagen}}> </ion-input>
   </ion-item>
-
+  <ion-button (click)="uploadImagePicker()">Subir imagen</ion-button>
+  <!-- <ion-button (click)="deleteFile()">Eliminar imagen</ion-button> -->
+  <br>
   <ion-button *ngIf="id != 'nuevo'" (click)="clicBotonModificar()">Modificar producto</ion-button>
   <ion-button *ngIf="id != 'nuevo'" (click)="presentAlertConfirm()">Eliminar producto</ion-button>
 
