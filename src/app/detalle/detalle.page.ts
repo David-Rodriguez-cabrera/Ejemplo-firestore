@@ -107,6 +107,7 @@ document: any = {
   }
 
   async uploadImagePicker() {
+    console.log("patata");
     // Mensaje de espera mientras se sube la imagen
     const loading = await this.loadingController.create({
       message: 'Please wait'
@@ -134,7 +135,7 @@ document: any = {
               let nombreCarpeta = "imagenes";
               // Recorrer todas las imágenes que haya seleccionado el usuario
               // aunque realmente sólo será 1 como se ha indicado en las opciones
-              for (var i = 0; i <results.lenght; i++){
+              for (var i = 0; i < results.lenght; i++){
                 // Mostrar el mensaje de espera
                 loading.present();
                 // Asignar el nombre de la imagen en función de la hora actual para
@@ -148,13 +149,14 @@ document: any = {
                                   .then(downloadUrl => {
                                     // En la variable downloadURL se tiene la dirección de descarga de la imagen
                                       console.log("downloadURL:" + downloadUrl);
+                                      this.document.data.imagen = downloadUrl;  
                                       // Mostrar el mensaje de finalización de la subida
                                       toast.present();
                                       // Ocultar mensaje de espera
                                       loading .dismiss();
                                   })
                               })
-                            
+                          
                           
               }
 

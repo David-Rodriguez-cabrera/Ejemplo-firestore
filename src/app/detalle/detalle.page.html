@@ -41,18 +41,18 @@
     <ion-label>Precio en €: </ion-label>
     <ion-input [(ngModel)]="document.data.precio"> </ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label>Imagen: </ion-label>
-    <ion-input {{documentTarea.data.imagen}}> </ion-input>
-  </ion-item>
-  <ion-button (click)="uploadImagePicker()">Subir imagen</ion-button>
-  <!-- <ion-button (click)="deleteFile()">Eliminar imagen</ion-button> -->
+  
+  
   <br>
   <ion-button *ngIf="id != 'nuevo'" (click)="clicBotonModificar()">Modificar producto</ion-button>
   <ion-button *ngIf="id != 'nuevo'" (click)="presentAlertConfirm()">Eliminar producto</ion-button>
 
   <ion-button *ngIf="id == 'nuevo'"(click)="clickBotonInsertar()">Guardar</ion-button>
   <ion-button href="home">Volver atras</ion-button>
-
+  <br>
+  <ion-button (click)="uploadImagePicker()">Subir imagen</ion-button>
+  <ion-button (click)="deleteFile()">Eliminar imagen</ion-button>
+<p>Imagen:</p>
+<img [src]="document.data.imagen">
   
 </ion-content>
