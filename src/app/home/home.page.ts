@@ -89,6 +89,7 @@ export class HomePage {
       // Limpiar datos de pantalla
       this.tareaEditando = {} as Tarea;
     })
+    this.router.navigate(['/home']);
   }
 
   

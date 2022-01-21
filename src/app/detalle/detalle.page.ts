@@ -5,6 +5,7 @@ import { FirestoreService } from '../firestore.service';
 import { AlertController } from '@ionic/angular';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.page.html',
@@ -23,7 +24,8 @@ document: any = {
      public alertController: AlertController,
      private loadingController: LoadingController,
      private toastController: ToastController,
-     private imagePicker: ImagePicker) { }
+     private imagePicker: ImagePicker, 
+     private router: Router) { }
 
   ngOnInit() {
     this.id = this.activateRoute.snapshot.paramMap.get('id');
@@ -77,7 +79,13 @@ document: any = {
       this.ngOnInit();
       // Limpiar datos de pantalla
       this.document.data = {} as Tarea;
+      
     })
+    this.router.navigate(['/home']);
+  }
+  clicVolver() {
+    
+    this.router.navigate(['/home']);
   }
   
   async presentAlertConfirm() {
@@ -118,14 +126,18 @@ document: any = {
       duration: 3000
     });
     // Comprobar si la aplicación tiene permisos de lectura
+    console.log("patata2");
     this.imagePicker.hasReadPermission().then(
       (result) => {
         // Si no tiene permiso de lectura se solicita al usuario
         if(result == false){
           this.imagePicker.requestReadPermission();
+          console.log("patata3");
         }
+        
         // Abrir selector de imágenes (ImagePicker)
         else {
+          console.log("patata4");
           this.imagePicker.getPictures ({
             maximumImagesCount: 1, // Permitir sólo 1 imagen
             outputType: 1 // 1 = Base 64
@@ -135,13 +147,15 @@ document: any = {
               let nombreCarpeta = "imagenes";
               // Recorrer todas las imágenes que haya seleccionado el usuario
               // aunque realmente sólo será 1 como se ha indicado en las opciones
-              for (var i = 0; i < results.lenght; i++){
+              console.log(results.length);
+              for (var i = 0; i < results.length; i++){
                 // Mostrar el mensaje de espera
                 loading.present();
                 // Asignar el nombre de la imagen en función de la hora actual para
                 // evitar duplicidades de nombres
                 let nombreImagen = `${new Date().getTime()}`;
                 // Llamar al método que sube la imagen al Storage
+                console.log("patatafin");
                 this.firestoreService.uploadImage(nombreCarpeta, nombreImagen,
                   results[i])
                               .then(snapshot =>{
@@ -173,10 +187,12 @@ document: any = {
       });
   }
 async deleteFile(fileUrl){
+  //this.document.data.imagen = null;
   const toast = await this.toastController.create({
     message: 'File was deleted successfully',
     duration: 3000
   });
+  //this.document.data.imagen = fileUrl; 
   this.firestoreService.deleteFileFromURL(fileUrl)
     .then(() =>{
       toast.present();
