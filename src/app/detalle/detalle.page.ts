@@ -195,6 +195,7 @@ async deleteFile(fileUrl){
   //this.document.data.imagen = fileUrl; 
   this.firestoreService.deleteFileFromURL(fileUrl)
     .then(() =>{
+      this.document.data.imagen = null;
       toast.present();
     
     }, (err) => {
