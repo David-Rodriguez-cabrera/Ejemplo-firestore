@@ -27,7 +27,7 @@ export class FirestoreService {
   public uploadImage(nombreCarpeta, nombreArchivo, imagenBase64){
     let storageRef =
   this.AngularFireStorage.ref(nombreCarpeta).child(nombreArchivo);
-  return storageRef.putString("data:image/jpeg;base64,"+imagenBase64, 'data_url');
+  return storageRef.putString(imagenBase64, 'data_url');
   }
   public deleteFileFromURL (fileURL) {
     return this.AngularFireStorage.storage.refFromURL(fileURL).delete();

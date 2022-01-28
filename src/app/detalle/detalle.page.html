@@ -50,9 +50,12 @@
   <ion-button *ngIf="id == 'nuevo'"(click)="clickBotonInsertar()">Guardar</ion-button>
   <ion-button (click)="clicVolver()">Volver atras</ion-button>
   <br>
-  <ion-button (click)="uploadImagePicker()">Subir imagen</ion-button>
-  <ion-button (click)="deleteFile(document.data.imagen)">Eliminar imagen</ion-button>
+  <!-- <ion-button (click)="uploadImagePicker()">Subir imagen</ion-button>
+  <ion-button (click)="deleteFile(document.data.imagen)">Eliminar imagen</ion-button> -->
+  <ion-button (click)="seleccionarImagen()">Seleccionar imagen</ion-button>
+    <ion-button (click)="borrarImagen()">Borrar imagen</ion-button>
+    <ion-button (click)="guardarDatos()">Guardar imagen en BD</ion-button>
 <p>Imagen:</p>
-<img [src]="document.data.imagen">
+<img src="{{imagenTempSrc}}">
   
 </ion-content>
