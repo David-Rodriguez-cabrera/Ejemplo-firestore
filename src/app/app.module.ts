@@ -10,6 +10,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 ],
   providers: [
     ImagePicker,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+    SocialSharing,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

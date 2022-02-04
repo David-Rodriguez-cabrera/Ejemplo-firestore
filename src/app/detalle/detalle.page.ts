@@ -6,6 +6,7 @@ import { AlertController } from '@ionic/angular';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
 import { Router } from '@angular/router';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.page.html',
@@ -32,7 +33,8 @@ document: any = {
      private loadingController: LoadingController,
      private toastController: ToastController,
      private imagePicker: ImagePicker, 
-     private router: Router) { 
+     private router: Router,
+     private socialSharing: SocialSharing) { 
 
       this.document.id = "ID_ImagenDePrueba";
       this.ngOnInit();
@@ -130,6 +132,25 @@ document: any = {
       ],
     });
     await alert.present();
+  }
+
+  async compartir(){
+    // Check if sharing via email is supported
+// this.socialSharing.canShareViaEmail().then(() => {
+//   // Sharing via email is possible
+// }).catch(() => {
+//   // Sharing via email is not possible
+// });
+
+// Share via email
+this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "Núcleos: " + this.document.data.nucleos + "\n" + "Hilos: "
+ + this.document.data.hilos + "\n" + "Precio: " + this.document.data.precio + "\n" + "Hercios: " + this.document.data.hercios
+ + "\n" + "Imagen: " + this.imagenTempSrc,
+  'Procesador', ['']).then(() => {
+  // Success!
+}).catch(() => {
+  // Error!
+});
   }
 
   async seleccionarImagen() {
