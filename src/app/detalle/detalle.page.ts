@@ -60,17 +60,17 @@ document: any = {
     });
   }
 
-  clickBotonInsertar() {
-    this.firestoreService.insertar("tareas", this.document.data)
-    .then(() =>{
-      console.log("Tarea creada correctamente")
-      // Limpiar el contenido de la tarea que se estaba editando
-      this.document.data = {} as Tarea;
-    }, (error) => {
-      console.error(error);
-    });
+  // clickBotonInsertar() {
+  //   this.firestoreService.insertar("tareas", this.document.data)
+  //   .then(() =>{
+  //     console.log("Tarea creada correctamente")
+  //     // Limpiar el contenido de la tarea que se estaba editando
+  //     this.document.data = {} as Tarea;
+  //   }, (error) => {
+  //     console.error(error);
+  //   });
 
-  }
+  // }
 
  
 
@@ -82,18 +82,23 @@ document: any = {
       // Limpiar datos de pantalla
       this.document.data = {} as Tarea;
     })
+    this.borrarImagen();
+    this.clicVolver();
   }
 
 
 
   clicBotonModificar() {
+    
     this.firestoreService.actualizar("tareas", this.id, this.document.data).then(() => {
       // Actualizar la lista completa
       this.ngOnInit();
       // Limpiar datos de pantalla
       this.document.data = {} as Tarea;
       
+      
     })
+    
     this.router.navigate(['/home']);
   }
   clicVolver() {

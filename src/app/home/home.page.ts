@@ -26,6 +26,10 @@ export class HomePage {
     this.tareaEditando = {} as Tarea;
     this.obtenerListaTareas();
   }
+  clicSegundaPag() {
+    
+    this.router.navigate(['detalle/nuevo']);
+  }
   clickBotonInsertar() {
     this.firestoreService.insertar("tareas", this.tareaEditando)
     .then(() =>{
