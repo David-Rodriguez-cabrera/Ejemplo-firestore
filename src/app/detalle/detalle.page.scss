@@ -29,7 +29,7 @@
     
   
   ion-header ion-toolbar {
-    --background: rgb(117, 110, 179);
+    --background: rgb(162, 159, 196);
   --color : black;
   
   }
@@ -62,5 +62,11 @@
           --ion-background-color: rgb(143, 146, 236);
           
           }
-        
-    
+          ion-buttons ion-button{
+            color:blue;
+        }
+        ion-title.title-large {
+          //color: purple;
+          font-size: 30px;
+          margin-left:300%;
+        }

@@ -48,10 +48,6 @@ document: any = {
         this.document.id = resultado.payload.id
         this.document.data = resultado.payload.data();
         this.imagenTempSrc = this.document.data.imagen;
-        //console.log(this.document.data.imagen);
-      //   if (this.document.data.imagen == undefined){
-      //   this.document.data.imagen = 'https://canalcocina.es/medias/_cache/zoom-cfb51745176980ddf03e20382b32760d-920-518.jpg'; 
-      // }
         // Como ejemplo, mostrar el título de la tarea en consola
         console.log(this.document.data.titulo);
       } else {
@@ -61,20 +57,6 @@ document: any = {
       } 
     });
   }
-
-  // clickBotonInsertar() {
-  //   this.firestoreService.insertar("tareas", this.document.data)
-  //   .then(() =>{
-  //     console.log("Tarea creada correctamente")
-  //     // Limpiar el contenido de la tarea que se estaba editando
-  //     this.document.data = {} as Tarea;
-  //   }, (error) => {
-  //     console.error(error);
-  //   });
-
-  // }
-
- 
 
   clicBotonBorrar() {
     
@@ -135,14 +117,6 @@ document: any = {
   }
 
   async compartir(){
-    // Check if sharing via email is supported
-// this.socialSharing.canShareViaEmail().then(() => {
-//   // Sharing via email is possible
-// }).catch(() => {
-//   // Sharing via email is not possible
-// });
-
-// Share via email
 this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "Núcleos: " + this.document.data.nucleos + "\n" + "Hilos: "
  + this.document.data.hilos + "\n" + "Precio: " + this.document.data.precio + "\n" + "Hercios: " + this.document.data.hercios
  + "\n" + "Imagen: " + this.imagenTempSrc,
@@ -268,95 +242,6 @@ this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "N�
     this.firestoreService.actualizar("tareas", this.document.id, this.document.data);
   }
 
-//   async uploadImagePicker() {
-//     console.log("patata");
-//     // Mensaje de espera mientras se sube la imagen
-//     const loading = await this.loadingController.create({
-//       message: 'Please wait'
-//     });
-//     // Mensaje de finalización de subida de la imagen
-//     const toast = await this.toastController.create({
-//       message: 'Image was updated successfully',
-//       duration: 3000
-//     });
-//     // Comprobar si la aplicación tiene permisos de lectura
-//     console.log("patata2");
-//     this.imagePicker.hasReadPermission().then(
-//       (result) => {
-//         // Si no tiene permiso de lectura se solicita al usuario
-//         if(result == false){
-//           this.imagePicker.requestReadPermission();
-//           console.log("patata3");
-//         }
-        
-//         // Abrir selector de imágenes (ImagePicker)
-//         else {
-//           console.log("patata4");
-//           this.imagePicker.getPictures ({
-//             maximumImagesCount: 1, // Permitir sólo 1 imagen
-//             outputType: 1 // 1 = Base 64
-//           }).then(
-//             (results) => {  // En la variable results se tienen las imágenes seleccionadas
-//               // Carpeta del Storage donde se almacenará la imagen
-//               let nombreCarpeta = "imagenes";
-//               // Recorrer todas las imágenes que haya seleccionado el usuario
-//               // aunque realmente sólo será 1 como se ha indicado en las opciones
-//               //console.log(results.length);
-//               if(results.length > 0) {
-//               //for (var i = 0; i < results.length; i++){
-//                 // Mostrar el mensaje de espera
-//                 loading.present();
-//                 // Asignar el nombre de la imagen en función de la hora actual para
-//                 // evitar duplicidades de nombres
-//                 let nombreImagen = `${new Date().getTime()}`;
-//                 // Llamar al método que sube la imagen al Storage
-//                 console.log("patatafin");
-//                 this.firestoreService.uploadImage(nombreCarpeta, nombreImagen,
-//                   results[0])
-//                               .then(snapshot =>{
-//                                 snapshot.ref.getDownloadURL()
-//                                   .then(downloadUrl => {
-//                                     // En la variable downloadURL se tiene la dirección de descarga de la imagen
-//                                       console.log("downloadURL:" + downloadUrl);
-//                                       this.document.data.imagen = downloadUrl;  
-//                                       // Mostrar el mensaje de finalización de la subida
-//                                       toast.present();
-//                                       // Ocultar mensaje de espera
-//                                       loading .dismiss();
-//                                   })
-//                               })
-                          
-                          
-//               }
-
-//             },
-//             (err) => {
-//               console.log(err)
-//             }
-//           );
-//           }
-        
-//         },
-//      (err) => {
-//         console.log(err);
-//       });
-//   }
-// async deleteFile(fileUrl){
-//   //this.document.data.imagen = null;
-//   const toast = await this.toastController.create({
-//     message: 'File was deleted successfully',
-//     duration: 3000
-//   });
-//   //this.document.data.imagen = fileUrl; 
-//   this.firestoreService.deleteFileFromURL(fileUrl)
-//     .then(() =>{
-//       this.document.data.imagen = null;
-//       toast.present();
-    
-//     }, (err) => {
-//       console.log(err);
-//     });
-// }
 
 
 

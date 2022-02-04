@@ -1,6 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Detalle</ion-title>
+    
+    <ion-buttons slot="start">
+      <ion-button (click)="clicVolver()" shape="round" fill="outline"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+      <ion-title size="large">Detalle</ion-title>
+      <!-- <ion-title><img src="C:/Users/2DAW-11/Documents/ionic/ejemplo-firestore/src/images/DETALLES.jpeg"></ion-title> -->
+    </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
@@ -56,8 +62,8 @@
     <ion-button (click)="borrarImagen()">Borrar imagen</ion-button>
     <ion-button style="right: 40px;" *ngIf="id != 'nuevo'" (click)="presentAlertConfirm()">Eliminar producto</ion-button>
     <br>
-    <ion-button style="position: fixed; bottom: 40px; right: 40px;" (click)="clicVolver()">Volver atras</ion-button>
-    <ion-button (click)="compartir()">Compartir</ion-button>
+    <ion-button style="position: fixed; bottom: 40px; right: 40px;" (click)="compartir()">Compartir</ion-button>
+    <!-- <ion-button *ngIf="id != 'nuevo'" (click)="compartir()">Compartir</ion-button> -->
 <p>Imagen:</p>
 <img src="{{imagenTempSrc}}">
   
