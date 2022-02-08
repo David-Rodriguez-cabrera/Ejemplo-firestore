@@ -62,6 +62,10 @@
           --ion-background-color: rgb(143, 146, 236);
           
           }
+          ion-app ion-menu ion-content ion-list ion-item  {
+            --ion-background-color: rgb(143, 146, 236);
+            
+            }
           ion-buttons ion-button{
             color:blue;
         }

@@ -1,3 +1,24 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Start Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Menu Item</ion-item>
+        <br>
+        <ion-item>Menu Item</ion-item>
+        <br>
+        <ion-item>Menu Item</ion-item>
+        <br>
+        <ion-item>Menu Item</ion-item>
+        <br>
+        <ion-item>Menu Item</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
 <ion-header [translucent]="true">
   <ion-toolbar>
     
@@ -11,7 +32,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
+  
   <ion-item>
     <ion-label>Procesador: </ion-label>
     <ion-input [(ngModel)]="document.data.procesador" ></ion-input>
@@ -68,3 +89,6 @@
 <img src="{{imagenTempSrc}}">
   
 </ion-content>
+
+<ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
