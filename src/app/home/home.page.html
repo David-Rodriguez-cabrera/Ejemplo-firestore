@@ -7,7 +7,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-fab-button (click)="clicSegundaPag()">Añadir</ion-fab-button>
+  
+  
   <h1>LISTA DE PROCESADORES</h1>
   
       <ion-row>
@@ -26,3 +27,18 @@
     </ion-row>
   
 </ion-content>
+<ion-fab-button (click)="clicSegundaPag()">Añadir</ion-fab-button>
+<ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="triangle"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="informacion">
+        <ion-icon name="ellipse"></ion-icon>
+        <ion-label>Informacion</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  </ion-toolbar>
