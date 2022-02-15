@@ -1,21 +1,16 @@
 <ion-app>
-  <ion-menu side="start" menuId="first" contentId="main">
+  <ion-menu *ngIf="id != 'nuevo'" side="start" menuId="first" contentId="main">
     <ion-header>
       <ion-toolbar>
         <ion-title>Start Menu</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
+    <ion-content id="fondoMenu">
       <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <br>
-        <ion-item>Menu Item</ion-item>
-        <br>
-        <ion-item>Menu Item</ion-item>
-        <br>
-        <ion-item>Menu Item</ion-item>
-        <br>
-        <ion-item>Menu Item</ion-item>
+        <ion-item (click)="compartir()" id="colorItemMenu">Compartir</ion-item>
+        <ion-item (click)="presentAlertConfirm()" id="colorItemMenu">Eliminar Producto</ion-item>
+        <ion-item (click)="clicInformacion()" id="colorItemMenu">Informacion</ion-item>
+        
       </ion-list>
     </ion-content>
   </ion-menu>
@@ -31,40 +26,40 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" id="fondo">
   
-  <ion-item>
+  <ion-item id="fondoContenido">
     <ion-label>Procesador: </ion-label>
     <ion-input [(ngModel)]="document.data.procesador" ></ion-input>
     
   </ion-item>
 
-  <ion-item>
+  <ion-item id="fondoContenido">
     <ion-label>Fecha de Salida: </ion-label>
     <ion-input [(ngModel)]="document.data.fecha"> </ion-input>
     <!-- <IonDatetime displayFormat="YYYY-MM-DD" ></IonDatetime> -->
   </ion-item>
 
-  <ion-item>
+  <ion-item id="fondoContenido">
     <ion-label>Generacion: </ion-label>
     <ion-input [(ngModel)]="document.data.generacion"> </ion-input>
   </ion-item>
 
-  <ion-item>
+  <ion-item id="fondoContenido">
     <ion-label>Nucleos: </ion-label>
     <ion-input [(ngModel)]="document.data.nucleos"> </ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item id="fondoContenido">
     <ion-label>Hilos: </ion-label>
     <ion-input [(ngModel)]="document.data.hilos"> </ion-input>
   </ion-item>
 
-  <ion-item>
+  <ion-item id="fondoContenido">
     <ion-label>Hercios: </ion-label>
     <ion-input [(ngModel)]="document.data.hercios"> </ion-input>
   </ion-item>
 
-  <ion-item>
+  <ion-item id="fondoContenido">
     <ion-label>Precio en €: </ion-label>
     <ion-input [(ngModel)]="document.data.precio"> </ion-input>
   </ion-item>
@@ -81,9 +76,9 @@
   <ion-button (click)="seleccionarImagen()">Seleccionar imagen</ion-button>
   <br>
     <ion-button (click)="borrarImagen()">Borrar imagen</ion-button>
-    <ion-button style="right: 40px;" *ngIf="id != 'nuevo'" (click)="presentAlertConfirm()">Eliminar producto</ion-button>
+    <!-- <ion-button style="right: 40px;" *ngIf="id != 'nuevo'" (click)="presentAlertConfirm()">Eliminar producto</ion-button>
     <br>
-    <ion-button style="position: fixed; bottom: 40px; right: 40px;" (click)="compartir()">Compartir</ion-button>
+    <ion-button style="position: fixed; bottom: 40px; right: 40px;" (click)="compartir()">Compartir</ion-button> -->
     <!-- <ion-button *ngIf="id != 'nuevo'" (click)="compartir()">Compartir</ion-button> -->
 <p>Imagen:</p>
 <img src="{{imagenTempSrc}}">

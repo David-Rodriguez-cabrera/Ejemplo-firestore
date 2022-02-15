@@ -89,6 +89,10 @@ document: any = {
     
     this.router.navigate(['/home']);
   }
+  clicInformacion() {
+    
+    this.router.navigate(['/informacion']);
+  }
   
   async presentAlertConfirm() {
     const alert = await this.alertController.create({

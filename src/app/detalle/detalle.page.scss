@@ -34,7 +34,7 @@
   
   }
   
-  ion-content ion-item {
+  #fondoContenido{
     --background: rgb(238, 238, 245);
     
     }
@@ -49,23 +49,25 @@
       
       }
   
-    ion-content {
+    #fondo {
       --background: rgb(143, 146, 236);
       
       }
       
-      ion-list ion-item  {
-        --background: rgb(143, 146, 236);
+      #colorItemMenu {
+        --color:white;
+        --background:rgb(39, 38, 38);
+      }
+      #fondoMenu {
+        --background:rgb(39, 38, 38);
+
+      }
+
+      #fondoMenu ion-list {
+        padding: 0px;
+      }
         
-        }
-        ion-list  {
-          --ion-background-color: rgb(143, 146, 236);
           
-          }
-          ion-app ion-menu ion-content ion-list ion-item  {
-            --ion-background-color: rgb(143, 146, 236);
-            
-            }
           ion-buttons ion-button{
             color:blue;
         }
