@@ -36,8 +36,8 @@ document: any = {
      private router: Router,
      private socialSharing: SocialSharing) { 
 
-      this.document.id = "ID_ImagenDePrueba";
-      this.ngOnInit();
+      // this.document.id = "ID_ImagenDePrueba";
+      // this.ngOnInit();
      }
 
   ngOnInit() {
@@ -70,19 +70,20 @@ document: any = {
     this.clicVolver();
   }
 
-  // clickBotonInsertar() {
-  //   this.firestoreService.insertar("tareas", this.document.data)
-  //   .then(() =>{
+  clickBotonInsertar() {
+    //this.insertarDatos();
+    console.log(this.document.data);
+    this.firestoreService.insertar("tareas", this.document.data)
+    .then(() =>{
       
-  //     console.log("Tarea creada correctamente")
-  //     // Limpiar el contenido de la tarea que se estaba editando
-  //     this.document.data = {} as Tarea;
-  //   }, (error) => {
-  //     console.error(error);
-  //   });
+      console.log("Tarea creada correctamente")
+      // Limpiar el contenido de la tarea que se estaba editando
+      this.document.data = {} as Tarea;
+    }, (error) => {
+      console.error(error);
+    });
 
-  // }
-
+  }
   clicBotonModificar() {
     
     this.firestoreService.actualizar("tareas", this.id, this.document.data).then(() => {
@@ -181,7 +182,7 @@ this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "N√
       if(this.document.data.imagenURL != null){
         this.eliminarArchivo(this.document.data.imagen);
       }
-      this.subirImagenActualizandoBD();
+      this.subirImagenActualizandoBD(false);
     } else {
       if(this.borrarArchivoImagen) {
         this.eliminarArchivo(this.document.data.imagen);        
@@ -190,24 +191,26 @@ this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "N√
       // Si no ha cambiado la imagen no se sube como archivo, s√≥lo se actualiza la BD
       this.actualizarBaseDatos();
     }
-  }
-  public insertarDatos() {
+    
+  } 
+  async insertarDatos() {
     if(this.subirArchivoImagen) {
       // Si la imagen es nueva se sube como archivo y se actualiza la BD
       if(this.document.data.imagenURL != null){
-        this.eliminarArchivo(this.document.data.imagen);
+        await this.eliminarArchivo(this.document.data.imagen);
       }
-      this.subirImagenActualizandoBD();
+      this.document.data.imagen = await this.subirImagenActualizandoBD(true);
     } else {
       if(this.borrarArchivoImagen) {
-        this.eliminarArchivo(this.document.data.imagen);        
+       await this.eliminarArchivo(this.document.data.imagen);        
         this.document.data.imagen = null;
       }
       // Si no ha cambiado la imagen no se sube como archivo, s√≥lo se actualiza la BD
-      this.insertarBaseDatos();
+      
     }
+    
   }
-  async subirImagenActualizandoBD(){
+  async subirImagenActualizandoBD(nuevo:boolean){
     // Mensaje de espera mientras se sube la imagen
     const loading = await this.loadingController.create({
       message: 'Please wait...'
@@ -241,7 +244,14 @@ this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "N√
             // Una vez que se ha termninado la subida de la imagen 
             //    se actualizan los datos en la BD
             this.document.data.imagen = downloadURL;
-            this.actualizarBaseDatos();
+            console.log(this.document.data);
+            if (nuevo){
+              this.clickBotonInsertar();
+            } else{
+              this.actualizarBaseDatos();
+            }
+            
+            //this.actualizarBaseDatos();
           })
       })    
   } 
@@ -272,15 +282,6 @@ this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "N√
     console.log(this.document.data);
     this.firestoreService.actualizar("tareas", this.document.id, this.document.data);
   }
-  private insertarBaseDatos() {    
-    console.log("Guardando en la BD: ");
-    console.log(this.document.data);
-    this.firestoreService.insertar("tareas",  this.document.data);
-  }
-
-
-
-
 
 }
 
