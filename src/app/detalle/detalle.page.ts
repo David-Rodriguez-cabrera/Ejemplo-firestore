@@ -70,7 +70,18 @@ document: any = {
     this.clicVolver();
   }
 
+  // clickBotonInsertar() {
+  //   this.firestoreService.insertar("tareas", this.document.data)
+  //   .then(() =>{
+      
+  //     console.log("Tarea creada correctamente")
+  //     // Limpiar el contenido de la tarea que se estaba editando
+  //     this.document.data = {} as Tarea;
+  //   }, (error) => {
+  //     console.error(error);
+  //   });
 
+  // }
 
   clicBotonModificar() {
     
@@ -180,6 +191,22 @@ this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "N√
       this.actualizarBaseDatos();
     }
   }
+  public insertarDatos() {
+    if(this.subirArchivoImagen) {
+      // Si la imagen es nueva se sube como archivo y se actualiza la BD
+      if(this.document.data.imagenURL != null){
+        this.eliminarArchivo(this.document.data.imagen);
+      }
+      this.subirImagenActualizandoBD();
+    } else {
+      if(this.borrarArchivoImagen) {
+        this.eliminarArchivo(this.document.data.imagen);        
+        this.document.data.imagen = null;
+      }
+      // Si no ha cambiado la imagen no se sube como archivo, s√≥lo se actualiza la BD
+      this.insertarBaseDatos();
+    }
+  }
   async subirImagenActualizandoBD(){
     // Mensaje de espera mientras se sube la imagen
     const loading = await this.loadingController.create({
@@ -244,6 +271,11 @@ this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "N√
     console.log("Guardando en la BD: ");
     console.log(this.document.data);
     this.firestoreService.actualizar("tareas", this.document.id, this.document.data);
+  }
+  private insertarBaseDatos() {    
+    console.log("Guardando en la BD: ");
+    console.log(this.document.data);
+    this.firestoreService.insertar("tareas",  this.document.data);
   }
 
 

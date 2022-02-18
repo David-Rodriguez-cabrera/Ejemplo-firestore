@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu *ngIf="id != 'nuevo'" side="start" menuId="first" contentId="main">
+  <ion-menu side="start" menuId="first" contentId="main">
     <ion-header>
       <ion-toolbar>
         <ion-title>Start Menu</ion-title>
@@ -71,8 +71,8 @@
   <!-- <ion-button *ngIf="id != 'nuevo'" (click)="guardarDatos()">Guardar imagen en BD</ion-button> -->
   
 
-  <!-- <ion-button *ngIf="id == 'nuevo'"(click)="clickBotonInsertar()">Guardar</ion-button> -->
-  <ion-button (click)="guardarDatos()">Guardar</ion-button>
+  <ion-button *ngIf="id == 'nuevo'"(click)="insertarDatos()">Insertar</ion-button>
+  <ion-button *ngIf="id != 'nuevo'"(click)="guardarDatos()">Guardar</ion-button>
   
   <ion-button (click)="seleccionarImagen()">Seleccionar imagen</ion-button>
   <br>
