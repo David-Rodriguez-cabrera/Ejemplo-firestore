@@ -1,11 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>informacion</ion-title>
+    <ion-label id="titulo1">Informacion</ion-label>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <br>
+  <ion-label id="titulo2">Página Desarollada Por: David Rodríguez Cabrera </ion-label>
+  <br>
+  <br>
 
+  <ion-label>Contacto: </ion-label>
+  <ion-button (click)="telefono()" id="botonLlamar"><ion-icon name="call"></ion-icon>Llamar</ion-button>
+  
 </ion-content>
 
 <ion-toolbar>

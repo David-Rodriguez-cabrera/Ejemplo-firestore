@@ -40,6 +40,8 @@ document: any = {
       // this.ngOnInit();
      }
 
+     
+
   ngOnInit() {
     this.id = this.activateRoute.snapshot.paramMap.get('id');
     this.firestoreService.consultarPorId("tareas", this.id).subscribe((resultado) => {
