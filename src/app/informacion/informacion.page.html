@@ -9,10 +9,11 @@
   <ion-label id="titulo2">Página Desarollada Por: David Rodríguez Cabrera </ion-label>
   <br>
   <br>
-
-  <ion-label>Contacto: </ion-label>
-  <ion-button (click)="telefono()" id="botonLlamar"><ion-icon name="call"></ion-icon>Llamar</ion-button>
-  
+<ion-item id="botonItem">
+  <ion-label id="label">Contacto: </ion-label>
+  <ion-button (click)="telefono()" id="botonLlamar"><ion-icon name="call" slot="start"></ion-icon>Llamar</ion-button>
+</ion-item>
+<div id="mapId" style="width:50%; height:100%; "></div>
 </ion-content>
 
 <ion-toolbar>
