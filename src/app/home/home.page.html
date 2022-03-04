@@ -1,12 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    
     <ion-title>
+      <ion-item style="border: none;">
       Procesadores
+      <ion-button (click)="logout()" style="margin-left:85% ;">Log out</ion-button>
+    </ion-item>
     </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <p>Email: {{ userEmail }}</p>
+  <p>UID: {{ userUID }}</p>
+  <!-- <ion-button (click)="login()">Log in</ion-button> -->
   
   
   <h1>LISTA DE PROCESADORES</h1>

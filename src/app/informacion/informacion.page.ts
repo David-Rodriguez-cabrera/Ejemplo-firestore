@@ -23,8 +23,8 @@ ionViewDidEnter(){
 }
 
 loadMap() {
-  let latitud = 36.6797047;
-  let longitud = -5.4470656;
+  let latitud = 36.679735;
+  let longitud = -5.4450258;
   let zoom = 30;
   this.map = L.map("mapId").setView([latitud, longitud], zoom);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')

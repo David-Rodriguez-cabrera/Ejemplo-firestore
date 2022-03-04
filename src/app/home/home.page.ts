@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirestoreService } from '../firestore.service';
 import { Tarea } from '../tarea';
+import { AuthService } from '../services/auth.service';
+import { LoadingController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-home',
@@ -19,9 +22,15 @@ export class HomePage {
 
   idTareaSelec: string;
 
-  
+  userEmail: String = "";
+  userUID: String = "";
+  isLogged: boolean;
 
-  constructor(private firestoreService: FirestoreService, private router: Router) {
+  constructor(private firestoreService: FirestoreService, 
+    private router: Router,
+    public loadingCtrl: LoadingController,
+    private authService: AuthService,
+    public afAuth: AngularFireAuth) {
     //Crear una tarea vacía al empezar
     this.tareaEditando = {} as Tarea;
     this.obtenerListaTareas();
@@ -96,5 +105,31 @@ export class HomePage {
     this.router.navigate(['/home']);
   }
 
-  
+  ionViewDidEnter() {
+    this.isLogged = false;
+    this.afAuth.user.subscribe(user => {
+      if(user){
+        this.userEmail = user.email;
+        this.userUID = user.uid;
+        this.isLogged = true;
+      }
+    })
+  }
+
+  login() {
+    this.router.navigate(["/login"]);
+  }
+
+  logout(){
+    this.authService.doLogout()
+    .then(res => {
+      this.userEmail = "";
+      this.userUID = "";
+      this.isLogged = false;
+      console.log(this.userEmail);
+      this.router.navigate(["/login"]);
+    }, err => console.log(err));
+    
+  }
+
 }
