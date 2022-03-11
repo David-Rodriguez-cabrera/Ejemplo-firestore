@@ -5,6 +5,7 @@ import { Tarea } from '../tarea';
 import { AuthService } from '../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { MenuController, NavController } from  '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -30,7 +31,8 @@ export class HomePage {
     private router: Router,
     public loadingCtrl: LoadingController,
     private authService: AuthService,
-    public afAuth: AngularFireAuth) {
+    public afAuth: AngularFireAuth,
+    public menu: MenuController) {
     //Crear una tarea vacía al empezar
     this.tareaEditando = {} as Tarea;
     this.obtenerListaTareas();
@@ -83,7 +85,7 @@ export class HomePage {
     this.tareaEditando.precio = tareaSelec.data.precio;
     this.tareaEditando.imagen = tareaSelec.data.imagen;
     this.router.navigate(['/detalle', this.idTareaSelec]);
-    
+    // this.menu1Active();
   }
 
   clicBotonBorrar() {
@@ -130,6 +132,10 @@ export class HomePage {
       this.router.navigate(["/login"]);
     }, err => console.log(err));
     
+  }
+  menu1Active() {
+    this.menu.enable(true, 'menu2');
+    this.menu.enable(false, 'menu1');
   }
 
 }

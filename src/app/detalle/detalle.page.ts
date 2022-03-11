@@ -7,6 +7,7 @@ import { LoadingController, ToastController } from '@ionic/angular';
 import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
 import { Router } from '@angular/router';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+import { MenuController, NavController } from  '@ionic/angular';
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.page.html',
@@ -34,7 +35,8 @@ document: any = {
      private toastController: ToastController,
      private imagePicker: ImagePicker, 
      private router: Router,
-     private socialSharing: SocialSharing) { 
+     private socialSharing: SocialSharing,
+     public menu: MenuController) { 
 
       // this.document.id = "ID_ImagenDePrueba";
       // this.ngOnInit();
@@ -102,6 +104,7 @@ document: any = {
   clicVolver() {
     
     this.router.navigate(['/home']);
+    // this.menu2Active();
   }
   clicInformacion() {
     
@@ -284,7 +287,10 @@ this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "NÃ
     console.log(this.document.data);
     this.firestoreService.actualizar("tareas", this.document.id, this.document.data);
   }
-
+  menu2Active() {
+    this.menu.enable(true, 'menu1');
+    this.menu.enable(false, 'menu2');
+  }
 }
 
 

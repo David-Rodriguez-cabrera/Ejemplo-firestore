@@ -1,20 +1,22 @@
 <ion-app>
-  <ion-menu side="start" menuId="first" contentId="main">
+  <ion-menu side="start" menuId="second" contentId="menu2">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Start Menu</ion-title>
+        <ion-title>Menu Detalles</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content id="fondoMenu">
       <ion-list>
-        <ion-item (click)="compartir()" id="colorItemMenu">Compartir</ion-item>
-        <ion-item (click)="presentAlertConfirm()" id="colorItemMenu">Eliminar Producto</ion-item>
-        <ion-item (click)="clicInformacion()" id="colorItemMenu">Informacion</ion-item>
+        <ion-item (click)="compartir()"id="colorItemMenu" button="true" detail="true" >Compartir</ion-item>
+        <ion-item (click)="presentAlertConfirm()" id="colorItemMenu"button="true" detail="true" >Eliminar Producto</ion-item>
+        <ion-item (click)="clicInformacion()" id="colorItemMenu"button="true" detail="true" >
+          Informacion</ion-item>
         
       </ion-list>
     </ion-content>
-    <ion-router-outlet id="main"></ion-router-outlet>
+    <ion-router-outlet id="menu2"></ion-router-outlet>
   </ion-menu>
+  
 <ion-header [translucent]="true">
   <ion-toolbar>
     
@@ -85,6 +87,6 @@
 <img src="{{imagenTempSrc}}">
   
 </ion-content>
-
-<!-- <ion-router-outlet id="main"></ion-router-outlet> -->
 </ion-app>
+<!-- <ion-router-outlet id="main"></ion-router-outlet> -->
+

@@ -25,23 +25,26 @@ ionViewDidEnter(){
 }
 
 loadMap() {
-  this.map = L.map("mapId");
+ 
   let latitud = 36.679735;
   let longitud = -5.4450258;
-  let zoom = 20;
-  this.map.setView([latitud, longitud], zoom);
+  let zoom = 15;
+
+  this.map = L.map("mapId").setView([latitud, longitud], zoom);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
       .addTo(this.map);
 
-      L.Routing.control({
-        waypoints: [
-          L.latLng(36.6752207, -5.4459883),
-          L.latLng(36.679735, -5.4450258)
-        ]
-      }).addTo(this.map);
+      // L.Routing.control({
+        
+      //   waypoints: [
+      //     L.latLng(36.6752207, -5.4459883),
+      //     L.latLng(36.679735, -5.4450258)
+      //   ],
+      // }).addTo(this.map);
     L.marker([36.6752207, -5.4459883]).addTo(this.map).bindPopup('Mi ubicación').openPopup();
     L.marker([36.679735, -5.4450258]).addTo(this.map).bindPopup('Ubicación Empresa').openPopup();
-    
+
+   
 }
 
 }
