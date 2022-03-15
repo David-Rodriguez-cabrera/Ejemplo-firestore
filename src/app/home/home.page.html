@@ -4,7 +4,7 @@
     <ion-title>
       <ion-item style="border: none;">
       Procesadores
-      <ion-button (click)="logout()" style="margin-left: auto;">Log out</ion-button>
+      <ion-button (click)="logout()" style="margin-left: auto;--color: white;">Log out</ion-button>
     </ion-item>
     </ion-title>
 
@@ -12,15 +12,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <p>Email: {{ userEmail }}</p>
-  <p>UID: {{ userUID }}</p>
+  <p style="color: black;">Email: {{ userEmail }}</p>
+  <p style="color: black;">UID: {{ userUID }}</p>
   <!-- <ion-button (click)="login()">Log in</ion-button> -->
   
   
   <h1>LISTA DE PROCESADORES</h1>
   
       <ion-row>
-        <ion-col *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)" size-xl="2.5" size-lg="2.5" size-md="3" size-sm="5" size-xs="12">
+        <ion-col *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)" size-xl="2" size-lg="2.5" size-md="3" size-sm="5" size-xs="12">
       <ion-card class="carta">
         
         <img style="height: 190px; width: 100%; float: center;" text-align="center"  [src]="documentTarea.data.imagen == undefined ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png' : documentTarea.data.imagen">

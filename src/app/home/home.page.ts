@@ -133,9 +133,5 @@ export class HomePage {
     }, err => console.log(err));
     
   }
-  menu1Active() {
-    this.menu.enable(true, 'menu2');
-    this.menu.enable(false, 'menu1');
-  }
 
 }
