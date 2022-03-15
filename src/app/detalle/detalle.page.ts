@@ -37,9 +37,6 @@ document: any = {
      private router: Router,
      private socialSharing: SocialSharing,
      public menu: MenuController) { 
-
-      // this.document.id = "ID_ImagenDePrueba";
-      // this.ngOnInit();
      }
 
      
@@ -75,7 +72,6 @@ document: any = {
   }
 
   clickBotonInsertar() {
-    //this.insertarDatos();
     console.log(this.document.data);
     this.firestoreService.insertar("tareas", this.document.data)
     .then(() =>{
@@ -104,7 +100,6 @@ document: any = {
   clicVolver() {
     
     this.router.navigate(['/home']);
-    // this.menu2Active();
   }
   clicInformacion() {
     
