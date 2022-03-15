@@ -1,78 +1,78 @@
 #container {
-    text-align: center;
-  
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  #container strong {
-    font-size: 20px;
-    line-height: 26px;
-  }
-  
-  #container p {
-    font-size: 16px;
-    line-height: 22px;
-  
-    color: #8c8c8c;
-  
-    margin: 0;
-  }
-  
-  #container a {
-    text-decoration: none;
-  }
+  text-align: center;
 
-    
-  
-  ion-header ion-toolbar {
-    --background: rgb(162, 159, 196);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+
+
+ion-header ion-toolbar {
+  --background: rgb(162, 159, 196);
   --color : black;
+
+}
+
+#fondoContenido{
+  --background: rgb(238, 238, 245);
+
+}
+
+ion-content ion-item ion-label {
+  --color: black;
+  
+  }
+
+ion-content ion-item ion-input {
+  --color: black;
+  
+  }
+
+#fondo {
+  --background: rgb(143, 146, 236);
   
   }
   
-  #fondoContenido{
-    --background: rgb(238, 238, 245);
+  #colorItemMenu {
+    --color:white;
+    --background:rgb(39, 38, 38);
+  }
+  #fondoMenu {
+    --background:rgb(39, 38, 38);
+
+  }
+
+  #fondoMenu ion-list {
+    background: none;
+  }
     
+      
+      ion-buttons ion-button{
+        color:blue;
     }
-
-    ion-content ion-item ion-label {
-      --color: black;
-      
-      }
-
-    ion-content ion-item ion-input {
-      --color: black;
-      
-      }
-  
-    #fondo {
-      --background: rgb(143, 146, 236);
-      
-      }
-      
-      #colorItemMenu {
-        --color:white;
-        --background:rgb(39, 38, 38);
-      }
-      #fondoMenu {
-        --background:rgb(39, 38, 38);
-
-      }
-
-      #fondoMenu ion-list {
-        background: none;
-      }
-        
-          
-          ion-buttons ion-button{
-            color:blue;
-        }
-        ion-title.title-large {
-          //color: purple;
-          font-size: 30px;
-          margin-left:300%;
-        }
+    ion-title.title-large {
+      //color: purple;
+      font-size: 30px;
+      margin-left:300%;
+    }

@@ -57,12 +57,6 @@ export class HomePage {
     this.firestoreService.consultar("tareas").subscribe((resultadoConsultaTareas) => {
       this.arrayColeccionTareas = [];
       resultadoConsultaTareas.forEach((datosTarea: any) => {
-        
-        // if (datosTarea.payload.doc.data().imagen == undefined){
-        //   datosTarea.payload.doc.data().imagen = 'https://canalcocina.es/medias/_cache/zoom-cfb51745176980ddf03e20382b32760d-920-518.jpg'; 
-        //   console.log(datosTarea.payload.doc.data());
-        // }
-        //console.log(datosTarea.payload.doc.data());
         this.arrayColeccionTareas.push({
           id: datosTarea.payload.doc.id,
           data: datosTarea.payload.doc.data()
@@ -85,7 +79,6 @@ export class HomePage {
     this.tareaEditando.precio = tareaSelec.data.precio;
     this.tareaEditando.imagen = tareaSelec.data.imagen;
     this.router.navigate(['/detalle', this.idTareaSelec]);
-    // this.menu1Active();
   }
 
   clicBotonBorrar() {

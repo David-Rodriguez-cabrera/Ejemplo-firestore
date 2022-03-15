@@ -23,7 +23,6 @@
     <ion-buttons slot="start">
       <ion-button (click)="clicVolver()" shape="round" fill="outline"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
       <ion-title style="font-size:x-large;">Detalle</ion-title>
-      <!-- <ion-title><img src="C:/Users/2DAW-11/Documents/ionic/ejemplo-firestore/src/images/DETALLES.jpeg"></ion-title> -->
     </ion-buttons>
     
   </ion-toolbar>
@@ -40,7 +39,6 @@
   <ion-item id="fondoContenido">
     <ion-label>Fecha de Salida: </ion-label>
     <ion-input [(ngModel)]="document.data.fecha"> </ion-input>
-    <!-- <IonDatetime displayFormat="YYYY-MM-DD" ></IonDatetime> -->
   </ion-item>
 
   <ion-item id="fondoContenido">
@@ -69,24 +67,14 @@
   
   
   <br>
-  <!-- <ion-button *ngIf="id != 'nuevo'" (click)="clicBotonModificar()">Modificar producto</ion-button> -->
-  <!-- <ion-button *ngIf="id != 'nuevo'" (click)="guardarDatos()">Guardar imagen en BD</ion-button> -->
-  
-
-  <!-- <ion-button *ngIf="id == 'nuevo'"(click)="insertarDatos()">Insertar</ion-button> -->
   <ion-button *ngIf="id != 'nuevo'"(click)="guardarDatos()">Guardar</ion-button>
   <ion-button *ngIf="id == 'nuevo'"(click)="clickBotonInsertar()">Insertar</ion-button>
   <ion-button (click)="seleccionarImagen()">Seleccionar imagen</ion-button>
   <br>
     <ion-button (click)="borrarImagen()">Borrar imagen</ion-button>
-    <!-- <ion-button style="right: 40px;" *ngIf="id != 'nuevo'" (click)="presentAlertConfirm()">Eliminar producto</ion-button>
-    <br>
-    <ion-button style="position: fixed; bottom: 40px; right: 40px;" (click)="compartir()">Compartir</ion-button> -->
-    <!-- <ion-button *ngIf="id != 'nuevo'" (click)="compartir()">Compartir</ion-button> -->
 <p>Imagen:</p>
 <img src="{{imagenTempSrc}}">
   
 </ion-content>
 </ion-app>
-<!-- <ion-router-outlet id="main"></ion-router-outlet> -->
 
