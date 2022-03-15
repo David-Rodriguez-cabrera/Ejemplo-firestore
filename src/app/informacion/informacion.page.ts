@@ -31,7 +31,7 @@ loadMap() {
   let zoom = 15;
 
   this.map = L.map("mapId").setView([latitud, longitud], zoom);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+  L.tileLayer('https://a.tile.openstreetmap.de/{z}/{x}/{y}.png')
       .addTo(this.map);
 
       // L.Routing.control({

@@ -50,7 +50,7 @@ document: any = {
       // Preguntar si se hay encontrado un document con ese ID
       if(resultado.payload.data() != null) {
         this.document.id = resultado.payload.id
-        this.document.data = resultado.payload.data();
+        this.document.data = resultado.payload.data(); 
         this.imagenTempSrc = this.document.data.imagen;
         // Como ejemplo, mostrar el título de la tarea en consola
         console.log(this.document.data.titulo);
@@ -138,14 +138,15 @@ document: any = {
   }
 
   async compartir(){
+    let imageURL = ('https://mescreen.net/' + btoa(this.document.data.imagen)) + '.html.jpg';
 this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "Núcleos: " + this.document.data.nucleos + "\n" + "Hilos: "
- + this.document.data.hilos + "\n" + "Precio: " + this.document.data.precio + "\n" + "Hercios: " + this.document.data.hercios
- + "\n" + "Imagen: " + this.imagenTempSrc,
-  'Procesador', ['']).then(() => {
+ + this.document.data.hilos + "\n" + "Precio: " + this.document.data.precio + "\n" + "Hercios: " + this.document.data.hercios,
+  'Procesador', imageURL).then(() => {
   // Success!
 }).catch(() => {
   // Error!
 });
+
   }
 
   async seleccionarImagen() {
@@ -286,10 +287,6 @@ this.socialSharing.share("Nombre: " + this.document.data.procesador + "\n" + "N�
     console.log("Guardando en la BD: ");
     console.log(this.document.data);
     this.firestoreService.actualizar("tareas", this.document.id, this.document.data);
-  }
-  menu2Active() {
-    this.menu.enable(true, 'menu1');
-    this.menu.enable(false, 'menu2');
   }
 }
 
